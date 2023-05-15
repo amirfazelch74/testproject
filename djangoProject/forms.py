@@ -26,6 +26,11 @@ class LoginForm(forms.Form):
 
 User = get_user_model()
 
+class Sms_login(forms.Form):
+    phone=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter your phonenumber'})
+    )
+
 class RegisterForm(forms.Form):
     userName = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter your username'})

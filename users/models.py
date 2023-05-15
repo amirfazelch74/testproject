@@ -12,6 +12,12 @@ from users.sender import send_otp
 
 # Create your models here.
 class User(AbstractUser):
+    # phone=models.TextField(max_length=20,blank=False)
+    # is_verified=models.BooleanField(default=False)
+    # smscode=models.SmallIntegerField(max_length=6)
+    # active_code=models.BooleanField(default=False)
+    # code_created=models.DateTimeField(auto_now_add=False)
+
     pass
 
 

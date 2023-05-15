@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
-from .forms import ContactUsForm, LoginForm, RegisterForm
+from .forms import ContactUsForm, LoginForm, RegisterForm, Sms_login
 
 
 def home_page(request):
@@ -32,6 +32,9 @@ def contact_us_page(request):
     }
     return render(request, 'contact_us_page.html', context)
 
+# def phone_login(request):
+#     sms_login=Sms_login(request.POST or None)
+#     if sms_login.is_valid():
 
 def login_page(request):
     print(request.user.is_authenticated)
