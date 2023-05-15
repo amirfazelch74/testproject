@@ -1,12 +1,26 @@
+from datetime import timedelta
+
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
 from .forms import ContactUsForm, LoginForm, RegisterForm, Sms_login
+from khayyam import *
 
 
 def home_page(request):
+    s=JalaliDatetime.now()+timedelta(seconds=110)
+    y=JalaliDatetime.now()
+    z=s-y
+    if z>timedelta(seconds=120):
+        x=True
+    else:
+        x=False
+    print(type(s.min))
     context = {
-        'message': 'Hi, welcome to my project'
+        'message': s,
+        'second':y,
+        'delta':z,
+        'out':x
     }
     return render(request, 'home_page.html', context)
 
@@ -32,9 +46,7 @@ def contact_us_page(request):
     }
     return render(request, 'contact_us_page.html', context)
 
-# def phone_login(request):
-#     sms_login=Sms_login(request.POST or None)
-#     if sms_login.is_valid():
+
 
 def login_page(request):
     print(request.user.is_authenticated)
